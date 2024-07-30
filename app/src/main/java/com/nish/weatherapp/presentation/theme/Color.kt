@@ -1,4 +1,4 @@
-package com.nish.weatherapp.ui.theme
+package com.nish.weatherapp.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
