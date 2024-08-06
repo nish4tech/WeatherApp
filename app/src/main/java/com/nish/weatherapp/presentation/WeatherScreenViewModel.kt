@@ -22,7 +22,7 @@ class WeatherScreenViewModel(val weatherRepo: WeatherRepo): ViewModel() {
 
         viewModelScope.launch {
             try {
-                _launchState.value = WeatherInfoScreenState.Success(weatherRepo.getWeatherData("52.52".toDouble(), "13.41".toDouble()))
+                _launchState.value = WeatherInfoScreenState.Success(weatherRepo.getWeatherData("43.466".toDouble(), "-79.69".toDouble()))
             } catch (e: Exception) {
                 e.printStackTrace()
                 _launchState.value = WeatherInfoScreenState.Error(e.message.orEmpty())
