@@ -33,14 +33,18 @@ fun WeatherHomeScreen() {
     ) {
         when (launches) {
             is WeatherInfoScreenState.Success -> {
-                val data = (launches as WeatherInfoScreenState.Success).data.currentWeatherData
-                data?.let { weatherData ->
-                    Column(modifier = Modifier
-                        .fillMaxSize()
-                        .padding(horizontal = 16.dp, vertical = 50.dp)
-                        ) {
-                        WeatherCard(data = weatherData)
-                    }
+                val currentWeatherData = (launches as WeatherInfoScreenState.Success).data.currentWeatherData
+                val allDayData = (launches as WeatherInfoScreenState.Success).data.weatherDataPerDay.get(0)
+                Column(modifier = Modifier
+                    .fillMaxSize()
+                    .padding(
+                        horizontal = 16.dp,
+                        vertical = 50.dp
+                    )
+                ) {
+                    currentWeatherData?.let { WeatherCard(data = currentWeatherData) }
+                    Spacer(modifier = Modifier.height(16.dp))
+                    allDayData?.let { WeatherForecast(data = allDayData) }
                 }
             }
 

@@ -29,7 +29,7 @@ import kotlin.math.roundToInt
 fun WeatherCard(data: WeatherData) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color.Blue,
+            containerColor = Color(0xFF8eede7),
         )
     ) {
         Column(
@@ -39,9 +39,9 @@ fun WeatherCard(data: WeatherData) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = data.time.format(DateTimeFormatter.ofPattern("HH:mm")),
+                text = "Today ${data.time.format(DateTimeFormatter.ofPattern("HH:mm"))}",
                 modifier = Modifier.align(Alignment.End),
-                color = Color.White
+                color = Color.Black
             )
             Spacer(modifier = Modifier.height(16.dp))
             Image(
@@ -51,15 +51,15 @@ fun WeatherCard(data: WeatherData) {
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(
-                text = "${data.temperatureCelsius}",
+                text = "${data.temperatureCelsius}°C",
                 fontSize = 50.sp,
-                color = Color.White
+                color = Color.Black
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(
                 text = data.weatherType.weatherDesc,
                 fontSize = 20.sp,
-                color = Color.White
+                color = Color.Black
             )
             Spacer(modifier = Modifier.height(16.dp))
             Row(
@@ -70,22 +70,22 @@ fun WeatherCard(data: WeatherData) {
                     value = data.pressure.roundToInt(),
                     unit = "HPA",
                     iconId = R.drawable.ic_pressure,
-                    iconTint = Color.White,
-                    textStyle = TextStyle(color = Color.White)
+                    iconTint = Color.Black,
+                    textStyle = TextStyle(color = Color.Black)
                 )
                 WeatherDataDisplay(
                     value = data.humidity.roundToInt(),
                     unit = "%",
                     iconId = R.drawable.ic_drop,
-                    iconTint = Color.White,
-                    textStyle = TextStyle(color = Color.White)
+                    iconTint = Color.Black,
+                    textStyle = TextStyle(color = Color.Black)
                 )
                 WeatherDataDisplay(
                     value = data.windSpeed.roundToInt(),
                     unit = "km/h",
                     iconId = R.drawable.ic_wind,
-                    iconTint = Color.White,
-                    textStyle = TextStyle(color = Color.White)
+                    iconTint = Color.Black,
+                    textStyle = TextStyle(color = Color.Black)
                 )
             }
 
